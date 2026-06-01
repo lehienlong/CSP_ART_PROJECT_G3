@@ -28,6 +28,9 @@ def draw_picture(width, height):
     
     sg.set_fill_color("#0096FF")
     sg. fill_rectangle(0, 200, 600, 200)
+    
+    sg.draw_tree(100, 300, 100, "brown", "green")
+    sg.draw_tree(500, 250, 100, "brown", "orange")
 
 if __name__ == "__main__":
     # Launch the wrapper; only edit starting dimensions of canvas if you would like to
