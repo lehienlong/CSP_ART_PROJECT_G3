@@ -252,7 +252,11 @@ def draw_bird(x, y, size):
         fill=_outline_color,
         width=_line_thickness
     )
-    
+
+def draw_bird_flock(x, y, count, spacing):
+    for i in range(count):
+        bird_x = x + (i * spacing)
+        draw_bird(bird_x, y, 20)
 
 def draw_text(x, y, text_string, font_size=16):
     """Draws text on the screen with the top-left corner at (x, y)."""
