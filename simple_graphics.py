@@ -224,7 +224,34 @@ def draw_tree(base_x, base_y, size, trunk_color, leaves_color):
         fill=leaves_color, outline=_outline_color, width=_line_thickness
     )
 
+def draw_bird(x, y, size):
+    global _canvas, _outline_color, _line_thickness
 
+    left_wing = [
+        (x - size, y),
+        (x - size * 0.5, y - size * 0.6),
+        (x, y)
+    ]
+
+    right_wing = [
+        (x, y),
+        (x + size * 0.5, y - size * 0.6),
+        (x + size, y)
+    ]
+
+    _canvas.create_line(
+        *[coord for point in left_wing for coord in point],
+        smooth=True,
+        fill=_outline_color,
+        width=_line_thickness
+    )
+
+    _canvas.create_line(
+        *[coord for point in right_wing for coord in point],
+        smooth=True,
+        fill=_outline_color,
+        width=_line_thickness
+    )
     
 
 def draw_text(x, y, text_string, font_size=16):
