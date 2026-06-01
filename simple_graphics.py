@@ -201,6 +201,28 @@ def draw_cloud(center_x, center_y, size):
                         center_x + main_radius, center_y + main_radius,
                         fill=_fill_color, outline=_outline_color, width=_line_thickness)
 
+def draw_tree(base_x, base_y, size, trunk_color, leaves_color):
+   
+    global _canvas, _outline_color, _line_thickness
+    
+    # Calculate trunk dimensions based on the overall size
+    trunk_width = size * 0.2
+    trunk_height = size * 0.5
+    
+    # Draw the trunk
+    _canvas.create_rectangle(
+        base_x - trunk_width / 2, base_y - trunk_height, 
+        base_x + trunk_width / 2, base_y, 
+        fill=trunk_color, outline=_outline_color, width=_line_thickness
+    )
+    
+    # Calculate leaf dimensions and draw the leaves
+    leaves_radius = size * 0.45
+    _canvas.create_oval(
+        base_x - leaves_radius, base_y - trunk_height - leaves_radius, 
+        base_x + leaves_radius, base_y - trunk_height + leaves_radius, 
+        fill=leaves_color, outline=_outline_color, width=_line_thickness
+    )
 
 
     
