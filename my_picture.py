@@ -34,7 +34,8 @@ def draw_picture(width, height):
     sg.draw_tree(500, 250, 100, "brown", "orange")
 
     #Long's bird
-    sg.draw_bird(350, 100, 30)
+    sg.draw_bird(300, 130, 20)
+    sg.draw_bird_flock(160, 100, 5, 70)
 
 if __name__ == "__main__":
     # Launch the wrapper; only edit starting dimensions of canvas if you would like to
