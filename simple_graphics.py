@@ -176,6 +176,33 @@ def draw_curve(points_list):
         fill=_outline_color, 
         width=_line_thickness
     )
+
+def draw_cloud(center_x, center_y, size):
+    
+    global _canvas, _fill_color, _outline_color, _line_thickness
+    
+    # Determine the sizes of the different parts of the cloud based on the main size
+    main_radius = size
+    left_radius = size * 0.7
+    right_radius = size * 0.6
+    
+    # Left bump of the cloud
+    _canvas.create_oval(center_x - main_radius * 0.9 - left_radius, center_y + main_radius * 0.1 - left_radius,
+                        center_x - main_radius * 0.9 + left_radius, center_y + main_radius * 0.1 + left_radius,
+                        fill=_fill_color, outline=_outline_color, width=_line_thickness)
+    
+    # Right bump of the cloud
+    _canvas.create_oval(center_x + main_radius * 0.9 - right_radius, center_y + main_radius * 0.1 - right_radius,
+                        center_x + main_radius * 0.9 + right_radius, center_y + main_radius * 0.1 + right_radius,
+                        fill=_fill_color, outline=_outline_color, width=_line_thickness)
+                        
+    # Center/top main bump of the cloud
+    _canvas.create_oval(center_x - main_radius, center_y - main_radius,
+                        center_x + main_radius, center_y + main_radius,
+                        fill=_fill_color, outline=_outline_color, width=_line_thickness)
+
+
+
     
 
 def draw_text(x, y, text_string, font_size=16):
